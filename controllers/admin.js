@@ -2,8 +2,8 @@ const jwt = require("jsonwebtoken");
 const Prod = require("../models/product");
 const Serv = require("../models/service");
 const Offer = require("../models/offer");
-
-exports.getIndex = async (req, res) => {
+const Google = require("../models/google");
+exports.getIndex = async(req, res) => {
     try {
         const Prods = await Prod.find()
         res.render("admin/products/products", {
@@ -13,7 +13,7 @@ exports.getIndex = async (req, res) => {
         console.log(error.message);
     }
 }
-exports.getServ = async (req, res) => {
+exports.getServ = async(req, res) => {
     try {
         const servs = await Serv.find()
         res.render("admin/serv/serv", {
@@ -23,7 +23,7 @@ exports.getServ = async (req, res) => {
         console.log(error.message);
     }
 }
-exports.getOffer = async (req, res) => {
+exports.getOffer = async(req, res) => {
     try {
         const offers = await Offer.find();
         res.render("admin/offers/offer", {
@@ -33,11 +33,21 @@ exports.getOffer = async (req, res) => {
         console.log(error.message);
     }
 }
+exports.getGoogle = async(req, res) => {
+    try {
+        const google = await Google.findOne();
+        res.render("admin/google/google", {
+            data: google
+        });
+    } catch (error) {
+        console.log(error.message);
+    }
+}
 exports.getLogin = (req, res) => {
     res.render("admin/login");
 }
 
-exports.logIn = async (req, res) => {
+exports.logIn = async(req, res) => {
     const email = req.body.email;
     const password = req.body.password;
     console.log(email + "//" + password)

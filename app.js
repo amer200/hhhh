@@ -17,10 +17,10 @@ app.use(express.json());
 app.use(cookieParser());
 //////////////////////////////////////////
 const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
+    destination: function(req, file, cb) {
         cb(null, 'public/uploads/')
     },
-    filename: function (req, file, cb) {
+    filename: function(req, file, cb) {
         const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9) + '.' + file.originalname;
         cb(null, file.fieldname + '-' + uniqueSuffix)
     }
@@ -31,7 +31,7 @@ app.put('/offer/edit', upload.single('img'));
 app.post('/service/add', upload.single('img'));
 app.put('/service/edit', upload.single('img'));
 app.post('/prod/add', upload.single('img'));
-app.put('/prod/edit', upload.single('img'));
+app.post('/prod/edit/:id', upload.single('img'));
 
 //////////////////////////////////////////
 //routes
@@ -40,6 +40,8 @@ const servRoute = require("./routes/serv");
 const prodRoute = require("./routes/product");
 const adminRoute = require("./routes/admin");
 const mainRoute = require("./routes/main");
+const googleRoute = require("./routes/google");
+app.use("/google", googleRoute);
 app.use("/offer", offerRoute);
 app.use("/service", servRoute);
 app.use("/prod", prodRoute);

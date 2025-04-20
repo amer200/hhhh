@@ -1,6 +1,6 @@
 const fs = require('fs').promises;
 const Prod = require("../models/product");
-exports.add = async (req, res) => {
+exports.add = async(req, res) => {
     try {
         const img = req.file;
         const name = req.body.name;
@@ -16,7 +16,7 @@ exports.add = async (req, res) => {
         console.log(error.message);
     }
 }
-exports.getAll = async (req, res) => {
+exports.getAll = async(req, res) => {
     try {
         const Prods = await Prod.find()
         res.status(200).json({
@@ -27,7 +27,7 @@ exports.getAll = async (req, res) => {
         console.log(error.message);
     }
 }
-exports.getById = async (req, res) => {
+exports.getById = async(req, res) => {
     try {
         const pId = req.params.pId;
         const prod = await Prod.findById(pId)
@@ -39,36 +39,34 @@ exports.getById = async (req, res) => {
         console.log(error.message);
     }
 }
-exports.edit = async (req, res) => {
+exports.edit = async(req, res) => {
     try {
-        const pId = req.body.pId;
+        const pId = req.params.id;
         const name = req.body.name;
         const desc = req.body.desc;
         const img = req.file;
         const prod = await Prod.findById(pId);
-        await fs.unlink(prod.img);
-        prod.img = img.path
+        if (img) {
+            prod.img = img.path
+        }
         prod.name = name
         prod.desc = desc
         await prod.save()
-        return res.status(200).json({
-            msg: "ok",
-            data: prod
-        })
+        res.redirect("/admin");
     } catch (error) {
         console.log(error);
     }
 }
-exports.delete = async (req, res) => {
+exports.delete = async(req, res) => {
     try {
         const pId = req.params.pId;
         const prod = await Prod.findById(pId);
         await fs.unlink(`public${prod.img}`);
         await Prod.findByIdAndDelete(pId);
         res.redirect("/admin/")
-        // return res.status(200).json({
-        //     msg: "ok"
-        // })
+            // return res.status(200).json({
+            //     msg: "ok"
+            // })
     } catch (error) {
         console.log(error.message);
     }
