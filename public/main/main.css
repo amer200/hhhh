@@ -1262,3 +1262,22 @@ video {
 .ad-content {
     text-align: center;
 }
+
+.swiper-slide {
+    height: 100% !important;
+    /* تأكد أن الslide يأخذ كامل المساحة */
+    position: relative;
+}
+
+.swiper-slide-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* تجعل الصورة تملأ الـ slide بالكامل دون أن تشوه */
+    border-radius: 1rem;
+    /* لتطبيق التدوير على الصورة */
+}
+
+.swiper-pagination-bullet-active {
+    background: #4F46E5 !important;
+}

@@ -3,6 +3,7 @@ const Prod = require("../models/product");
 const Serv = require("../models/service");
 const Offer = require("../models/offer");
 const Google = require("../models/google");
+const Logo = require("../models/logo");
 exports.getIndex = async(req, res) => {
     try {
         const Prods = await Prod.find()
@@ -39,6 +40,17 @@ exports.getGoogle = async(req, res) => {
         res.render("admin/google/google", {
             data: google
         });
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+
+exports.getLogo = async(req, res) => {
+    try {
+        const logo = await Logo.findOne();
+        res.render("admin/logo/logo", {
+            logo: logo
+        })
     } catch (error) {
         console.log(error.message);
     }
