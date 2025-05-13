@@ -19,7 +19,7 @@ exports.getIndex = async(req, res) => {
             servs: servs,
             google: google,
             logo: logo,
-            slide: slide
+            images: slide
         })
     } catch (error) {
         console.log(error.message);

@@ -33,6 +33,9 @@ app.put('/service/edit', upload.single('img'));
 app.post('/prod/add', upload.single('img'));
 app.post('/prod/edit/:id', upload.single('img'));
 app.post('/logo/add', upload.single('img'));
+app.post('/slide/add', upload.single('img'));
+app.post('/slide/edit/:id', upload.single('img'));
+
 
 //////////////////////////////////////////
 //routes
@@ -43,7 +46,9 @@ const adminRoute = require("./routes/admin");
 const mainRoute = require("./routes/main");
 const googleRoute = require("./routes/google");
 const logoRoute = require("./routes/logo");
+const slideRoute = require("./routes/slide");
 
+app.use("/slide", slideRoute);
 app.use("/logo", logoRoute);
 app.use("/google", googleRoute);
 app.use("/offer", offerRoute);

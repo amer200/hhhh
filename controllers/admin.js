@@ -4,6 +4,7 @@ const Serv = require("../models/service");
 const Offer = require("../models/offer");
 const Google = require("../models/google");
 const Logo = require("../models/logo");
+const SliderImage = require("../models/slide");
 exports.getIndex = async(req, res) => {
     try {
         const Prods = await Prod.find()
@@ -50,6 +51,16 @@ exports.getLogo = async(req, res) => {
         const logo = await Logo.findOne();
         res.render("admin/logo/logo", {
             logo: logo
+        })
+    } catch (error) {
+        console.log(error.message);
+    }
+}
+exports.getSlide = async(req, res) => {
+    try {
+        const slides = await SliderImage.find();
+        res.render("admin/slide/slide", {
+            images: slides
         })
     } catch (error) {
         console.log(error.message);

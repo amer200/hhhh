@@ -1,6 +1,8 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
-const slideSchema = new mongoose.Schema({
-    img: String
+const sliderImageSchema = new mongoose.Schema({
+  imageUrl: { type: String, required: true },
+  altText: { type: String, default: '' }
 });
-module.exports = mongoose.model('Slide', slideSchema);
+
+module.exports = mongoose.model('SliderImage', sliderImageSchema);
