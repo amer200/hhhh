@@ -95,7 +95,7 @@
             <div class="flex flex-wrap gap-4 justify-center">
                 <% offers.forEach(o => { %>
                     <!-- رابط واتساب مع hover effect -->
-                    <a href="https://wa.me/0530555447" target="_blank">
+                    <a href="https://wa.me/966530555447" target="_blank">
                         <img 
                             class="buy mb-7 object-contain" 
                             style="max-width: 300px; transition: transform 0.3s ease-in-out;" 
@@ -120,7 +120,7 @@
                         <% p.forEach(s => { %>
                             <div class="border-2 rounded-md border-blue-300 flex justify-around flex-col">
                                 <!-- رابط واتساب مع hover effect -->
-                                <a href="https://wa.me/0530555447" target="_blank">
+                                <a href="https://wa.me/966530555447" target="_blank">
                                     <img 
                                         src="<%= s.img.replace('public', '') %>" 
                                         alt="" 
@@ -261,10 +261,16 @@
                             <img src="images/ring.jpg" alt="" srcset="" class="w-10 h-10 mr-3">
                             <h1 class="text-blue-900 font-bold text-2xl">0530555447</h1>
                         </div>
-                        <div class="flex">
+                        <!-- <div class="flex">
                             <img src="images/what.jpg" alt="" srcset="" class="w-10 h-10 mr-3">
                             <h1 class="text-blue-900 font-bold text-2xl">0530555447</h1>
-                        </div>
+                        </div> -->
+                        <a href="https://wa.me/966530555447" target="_blank" class="block w-fit">
+                            <div class="flex cursor-pointer hover:opacity-80 items-center">
+                                <img src="images/what.jpg" alt="" class="w-10 h-10 mr-3">
+                                <h1 class="text-blue-900 font-bold text-2xl">0530555447</h1>
+                            </div>
+                        </a>
                         <div class="flex">
                             <img src="images/email.jpg" alt="" srcset="" class="w-10 h-10 mr-3">
                             <h1 class="text-blue-900 font-bold text-2xl">sales@hr-ksa.com</h1>
@@ -273,13 +279,33 @@
                 </div>
 
                 <!-- Footer Bottom Section -->
-                <div class="flex justify-center items-center gap-1 md:gap-12 mt-8">
+                <!-- <div class="flex justify-center items-center gap-1 md:gap-12 mt-8">
                     <img src="images/email.jpg" alt="" class="w-16 h-16 object-cover">
                     <img src="images/face.jpg" alt="" class="w-16 h-16 object-cover">
                     <img src="images/inst.jpg" alt="" class="w-16 h-16 object-cover">
                     <img src="images/tic.jpg" alt="" class="w-16 h-16 object-cover">
                     <img src="images/what.jpg" alt="" class="w-16 h-16 object-cover">
                     <img src="images/snap.jpg" alt="" class="w-16 h-16 object-cover">
+                </div> -->
+                <div class="flex justify-center items-center gap-1 md:gap-12 mt-8">
+                    <a href="mailto:example@email.com" target="_blank">
+                        <img src="images/email.jpg" alt="Email" class="w-16 h-16 object-cover cursor-pointer hover:opacity-80">
+                    </a>
+                    <a href="https://facebook.com/yourPage" target="_blank">
+                        <img src="images/face.jpg" alt="Facebook" class="w-16 h-16 object-cover cursor-pointer hover:opacity-80">
+                    </a>
+                    <a href="https://instagram.com/yourPage" target="_blank">
+                        <img src="images/inst.jpg" alt="Instagram" class="w-16 h-16 object-cover cursor-pointer hover:opacity-80">
+                    </a>
+                    <a href="https://tiktok.com/@yourPage" target="_blank">
+                        <img src="images/tic.jpg" alt="TikTok" class="w-16 h-16 object-cover cursor-pointer hover:opacity-80">
+                    </a>
+                    <a href="https://wa.me/966530555447" target="_blank">
+                        <img src="images/what.jpg" alt="WhatsApp" class="w-16 h-16 object-cover cursor-pointer hover:opacity-80">
+                    </a>
+                    <a href="https://snapchat.com/add/yourPage" target="_blank">
+                        <img src="images/snap.jpg" alt="Snapchat" class="w-16 h-16 object-cover cursor-pointer hover:opacity-80">
+                    </a>
                 </div>
             </div>
             <section class="w-full bg-blue-900 bg-center flex justify-center items-center">
